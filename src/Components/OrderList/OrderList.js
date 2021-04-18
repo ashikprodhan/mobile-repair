@@ -39,7 +39,7 @@ const OrderList = () => {
                    
                     <td>{order.email}</td>
                     <td><select className="form-control" >
-                <option disabled={true} value="Not set">Select Gender</option>
+                <option disabled={true} value="Not set">Select Option</option>
                 <option value="Pending">Pending</option>
                 <option value="Ongoing">on going</option>
                 <option value="Done">done</option>
