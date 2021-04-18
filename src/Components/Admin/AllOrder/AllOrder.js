@@ -37,9 +37,9 @@ const AllOrder = () => {
                     <td>{order.email}</td>
                     <td><select className="form-control" >
                 <option disabled={true} value="Not set">Select Gender</option>
-                <option value="Male">Pending</option>
-                <option value="Female">Success</option>
-                <option value="Not set">Other</option>
+                <option value="Pending">Pending</option>
+                <option value="Done">Done</option>
+                <option value="Ongoing">Ongoing</option>
               </select></td>
 
                 </tr>
