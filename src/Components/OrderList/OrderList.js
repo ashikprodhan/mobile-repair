@@ -7,7 +7,7 @@ const OrderList = () => {
     const [orders, setOrders] = useState([]);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/orders?email='+loggedInUser.email)
+        fetch('https://rocky-chamber-96168.herokuapp.com/orders?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setOrders(data));
     },[])
@@ -16,7 +16,41 @@ const OrderList = () => {
         <div>
            <div className="row">
                <div className="col-md-3"><Sidebar></Sidebar></div>
-                <div className="col-md-8"> <h5> you have {orders.length} orders </h5></div>
+                <div className="col-md-8"> <h5> you have {orders.length} orders </h5>
+                <table className="table table-borderless">
+        <thead>
+            <tr>
+            <th className="text-secondary text-left" scope="col">Sr No</th>
+            <th className="text-secondary" scope="col">Name</th>
+            <th className="text-secondary" scope="col">Service Type</th>
+            
+            <th className="text-secondary" scope="col">Email</th>
+            <th className="text-secondary" scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+              orders.map((order, index) => 
+                    
+                <tr>
+                    <td>{index + 1}</td>
+                    <td>{order.name}</td>
+                    <td>{order.service?.name}</td>
+                   
+                    <td>{order.email}</td>
+                    <td><select className="form-control" >
+                <option disabled={true} value="Not set">Select Gender</option>
+                <option value="Male">Pending</option>
+                <option value="Female">Success</option>
+                <option value="Not set">Other</option>
+              </select></td>
+
+                </tr>
+                )
+            }
+        </tbody>
+    </table>
+                </div>
            </div>
             {/* {
                 orders.map(order => <pre> {order.product?.name}   <strong> price </strong>  ${order.product?.price} <strong> Date:{(new Date(order.date)).toDateString('dd/MM/yyyy')} </strong> </pre> )

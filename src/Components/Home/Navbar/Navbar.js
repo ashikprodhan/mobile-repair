@@ -14,7 +14,7 @@ const Navbar = () => {
                         <div className="navbar-nav ms-auto">
                             <Link to="/" className="nav-link active" aria-current="page">Home</Link>
                             <Link to="/order" className="nav-link active">Orders</Link>
-                            <Link to="/admin" className="nav-link active">Admin</Link>
+                            <Link to="/admin" className="nav-link active">Dashboard</Link>
                             {/* <Link to="/allOrder" className="nav-link active">All order</Link> */}
                             <Link to="/login" className="nav-link active">Login</Link>
 

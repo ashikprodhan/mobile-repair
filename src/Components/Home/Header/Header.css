@@ -2,7 +2,7 @@
     height:420px;
     
     position:relative;
-    background-image: linear-gradient(red, yellow, blue);
+    background-image: #f0f8ff;
     /* background-image: url('../../../images/header-bg-test.jpg'); */
     background-size: cover;
 }

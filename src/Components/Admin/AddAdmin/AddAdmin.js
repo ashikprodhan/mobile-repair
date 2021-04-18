@@ -12,7 +12,7 @@ const AddAdmin = () => {
 
 
         }
-        const url = `http://localhost:5000/addAdmin`;
+        const url = `https://rocky-chamber-96168.herokuapp.com/addAdmin`;
         console.log(adminEmail)
 
         fetch(url, {

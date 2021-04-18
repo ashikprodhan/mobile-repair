@@ -7,7 +7,7 @@ const AddReview = () => {
 
 
     const onSubmit = data => {
-        const url = `http://localhost:5000/addReview`;
+        const url = `https://rocky-chamber-96168.herokuapp.com/addReview`;
         // console.log(serviceData)
 
         fetch(url, {

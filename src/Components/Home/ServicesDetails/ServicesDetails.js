@@ -1,20 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring'
 
-const ServicesDetails = ({service}) => {    
-const {imageUrl,name,price,_id}=service;
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
-// console.log(name);
-   
-    
+
+
+const ServicesDetails = ({ service }) => {
+    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+
+    const { imageUrl, name, price, _id } = service;
+
+    // console.log(name);
+
+  
 
     return (
-        <div className="col-md-4 text-center mt-1" >
-            <img src={imageUrl} alt=""/>
-            <h6>{name}</h6>
-            <p>price: ${price}</p>
-            
-            <Link to={`/service/${_id}`}   className="btn btn-primary">Buy now</Link>
+        <div className="col-md-4">
+            <div className="card  " style={{ width: "18rem", boxShadow: "0px 0px 10px grey",margin:"10px" }}>
+                    <animated.div
+                        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                        style={{ transform: props.xys.interpolate(trans) }}
+                    >
+                        <img src={imageUrl} style={{width:"100px"}} className="card-img-top img-fluid" alt="..." />
+                    </animated.div>
+
+
+                    <div className="card-body text-center">
+                        <div>
+                            <h5>{service.name}</h5>
+                            <h3>$ {service.price}</h3>
+                            <p className="card-text">{service.description}</p>
+                        </div>
+                         <Link to={`/service/${_id}`} className="btn btn-primary">Buy now</Link>
+                    </div>
+                </div>
         </div>
     );
 };

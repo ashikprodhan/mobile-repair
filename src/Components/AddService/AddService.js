@@ -14,7 +14,7 @@ const AddService = () => {
             price:data.price
 
         }
-        const url  =`http://localhost:5000/addService`;
+        const url  =`https://rocky-chamber-96168.herokuapp.com/addService`;
         // console.log(serviceData)
 
         fetch(url,{

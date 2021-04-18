@@ -9,7 +9,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false)
     console.log(isAdmin,'from admin');
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://rocky-chamber-96168.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -22,7 +22,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
           { isAdmin && <div>
-                <Link to="/admin" class="active" >Admin</Link>
+                <Link to="/admin" class="active" >Dashboard</Link>
                 <Link to="/manageService"> Manage service</Link>
                 <Link to="/allOrder" >All Order</Link>
                 <Link to="/addService" >Add services</Link>
