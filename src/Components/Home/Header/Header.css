@@ -1,0 +1,8 @@
+.header-container {
+    height:420px;
+    
+    position:relative;
+    background-image: linear-gradient(red, yellow, blue);
+    /* background-image: url('../../../images/header-bg-test.jpg'); */
+    background-size: cover;
+}
