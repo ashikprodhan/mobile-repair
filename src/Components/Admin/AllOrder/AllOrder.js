@@ -12,7 +12,7 @@ const AllOrder = () => {
         setShow(true);
     }
     const handleClick = (id) => {
-        const url = `http://localhost:5000/update/${id}`
+        const url = `https://rocky-chamber-96168.herokuapp.com/update/${id}`
         fetch(url, {
             method: 'POST',
             headers: {
