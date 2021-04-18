@@ -2,8 +2,34 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 const AllOrder = () => {
+    const [update, setUpdate] = useState([])
+    const [show, setShow] = useState(false)
+    const handleChange = (e) => {
+        console.log(e.target.name, e.target.value)
+        const data = { ...update }
+        data[e.target.name] = e.target.value;
+        setUpdate(data)
+        setShow(true);
+    }
+    const handleClick = (id) => {
+        const url = `http://localhost:5000/update/${id}`
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => {
+                if (res) {
+                    console.log(res)
+                    alert('Your status has been update successfully');
+                }
+            })
+    }
     const [orders, setOrders] = useState([])
     console.log(orders);
+
    useEffect(()=>{
        fetch('https://rocky-chamber-96168.herokuapp.com/allOrder')
        .then(res => res.json())
@@ -35,12 +61,17 @@ const AllOrder = () => {
                     <td>{order.service?.name}</td>
                    
                     <td>{order.email}</td>
-                    <td><select className="form-control" >
-                <option disabled={true} value="Not set">Select option</option>
-                <option value="Pending">Pending</option>
-                <option value="Done">Done</option>
-                <option value="Ongoing">Ongoing</option>
-              </select></td>
+                    <td>
+                    <h3><select value={order.status} onChange={handleChange} className="form-control text center" name="status">
+                                            <option>Pending</option>
+                                            <option>Shipped</option>
+                                            <option>Done</option>
+                                        </select></h3>
+ {
+                                            show && <button className="btn btn-success" onClick={() => handleClick(order._id)}>Update</button>
+                                        }
+
+              </td>
 
                 </tr>
                 )

@@ -3,6 +3,7 @@ import { UserContext } from '../../App';
 import Sidebar from '../Admin/Sidebar/Sidebar';
 
 const OrderList = () => {
+    const [show, setShow] = useState(false)
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [orders, setOrders] = useState([]);
     
@@ -38,12 +39,9 @@ const OrderList = () => {
                     <td>{order.service?.name}</td>
                    
                     <td>{order.email}</td>
-                    <td><select className="form-control" >
-                <option disabled={true} value="Not set">Select Option</option>
-                <option value="Pending">Pending</option>
-                <option value="Ongoing">on going</option>
-                <option value="Done">done</option>
-              </select></td>
+                    <td>
+                       {order.status}
+                    </td>
 
                 </tr>
                 )
