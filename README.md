@@ -1,6 +1,9 @@
-## This is Mobile Repair full-stack site 
-## This website got landing home page which consist of header, service card, contact form ,footer, review ,why us  page. In service card have price service name and button. This site got some restriction normal user can not see all orders while admin only can see all the orders,add services, delete services.
-
-## User able to buy service from this site 
-## Here admin can add service ,delete the service and can the all the orders .
+## Mobile Repair
+Technology:​ ​ React, Router, Node.js, MongoDB, Bootstrap, Firebase Authentication, Heroku.
+## Features :
+1.A full-stack website where you have the Admin dashboard and user dashboard.
+2.Admin can see all the orders,add services, delete services.
+3.To place an order, users have to login with a google account.
+4.Users are able to buy service from this site through stripe payment. User can see orders and post reviews
+This web app has an admin page where the admin can add a new service, update the current status, delete a service, and make a new admin.
 ## Live link : https://mobile-repair-44845.web.app/
